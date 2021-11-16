@@ -6,23 +6,42 @@
 body {
     width: 100%;
     height: 700px;
+    box-sizing: border-box;
 
 }
 
-aside {
+nav {
     float: left;
     color: white;
     background-color: #222;
 
-    display: flex;
+ 
 
-    flex-direction: column;
+    position: fixed; /* Revisar, el main atraviesa el nav. */
+    
 
-    position: fixed;
+    text-align: center;
 
     width: 150px; 
-    height: 100%; /* Establecemos al 100% el ancho en el ViewPort */
+    height: 100vh; /* Establecemos al 100% el ancho en el ViewPort */
     /* La unidad vh es igual al 1% de la altura de la ventana */
+
+
+}
+nav #enlaces {
+    
+    height: 100%;
+
+    display: flex;
+
+    justify-content: center;
+    flex-direction: column;
+
+
+}
+
+nav span {
+    padding-bottom: 20px;
 }
 
 main {
@@ -31,7 +50,10 @@ main {
 
 
     background-color: aliceblue;
-    float: left;
+}
+
+#home1Text {
+    /*margin: 200px;*/
 }
 
 #barra {
