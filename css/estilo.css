@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    height: 700px;
+
+}
+
+aside {
+    float: left;
+    color: white;
+    background-color: #222;
+
+    display: flex;
+
+    flex-direction: column;
+
+    position: fixed;
+
+    width: 150px; 
+    height: 100%; /* Establecemos al 100% el ancho en el ViewPort */
+    /* La unidad vh es igual al 1% de la altura de la ventana */
+}
+
+main {
+    width: 100vw; /* REVISAR ****** */
+    height: 100vh; /* Establecemos al 100% el ancho en el ViewPort */
+
+
+    background-color: aliceblue;
+    float: left;
+}
+
+#barra {
+    width: 0%;
+    position: fixed;
+    z-index: 1;
+    background-color: orange;
+}
