@@ -5,7 +5,7 @@
 
 body {
     width: 100%;
-    height: 700px;
+    height: 100vh;
     box-sizing: border-box;
 
 }
@@ -23,7 +23,7 @@ nav {
     text-align: center;
 
     width: 150px; 
-    height: 100vh; /* Establecemos al 100% el ancho en el ViewPort */
+    height: 100%; /* Establecemos al 100% el ancho en el ViewPort */
     /* La unidad vh es igual al 1% de la altura de la ventana */
 
 
@@ -52,9 +52,13 @@ main {
     background-color: aliceblue;
 }
 
-#home1Text {
-    /*margin: 200px;*/
+/* Margen aplicado a todos los divs del main (unicamente los homes) */
+
+main > div {
+    margin-left: 150px;
+
 }
+
 
 #barra {
     width: 0%;
