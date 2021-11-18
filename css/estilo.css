@@ -13,7 +13,7 @@ body {
 nav {
     float: left;
     color: white;
-    background-color: #222;
+    background-color: #4C566A;
 
  
 
@@ -40,13 +40,24 @@ nav #enlaces {
 
 }
 
-nav span {
-    padding-bottom: 20px;
+.puntos {
+    height: 25px;
+    width: 25px;
+    margin: 10px 0 0 50%;
+
+    border: 3px solid black;
+
+    border-radius: 50%;
+    display: inline-block;
+}
+
+nav div:nth-child(1) {
+    margin-top: 25px;
 }
 
 main {
-    width: 100vw; /* REVISAR ****** */
-    height: 100vh; /* Establecemos al 100% el ancho en el ViewPort */
+    width: 100%; /* REVISAR ****** */
+    height: 100%; /* Establecemos al 100% el ancho en el ViewPort */
 
 
     background-color: aliceblue;
@@ -59,10 +70,116 @@ main > div {
 
 }
 
+.home2Text {
+    padding: 10px;
+}
+
+.home2Text h2 {
+    margin-top: 50px;
+    font-size: 60px;
+}
+
+
 
 #barra {
     width: 0%;
     position: fixed;
     z-index: 1;
     background-color: orange;
+}
+
+
+/**
+    ============================
+            SLIDER
+    ============================
+*/
+.home1Text {
+    box-shadow: 5px 5px hsl(0, 0%, 76%);
+    position: relative;
+}
+.home1Text ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;    
+}
+
+.home1Text ul li  {
+    position: relative;
+    display: none;
+    width: 100%;
+    height: 100vh;
+}
+
+.home1Text ul li img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* Texto del medio del slider */
+.home1Text h1 {
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%,-50%); /* Centramos el texto. */
+    z-index: 1;
+
+    box-shadow: 5px 10px 2px #222;
+    
+    /*padding: 5px; Lo descolocaría al no utilizar border-box*/
+    text-align: center;
+    color: white;
+}
+
+.home1Text ul li span {
+    position: absolute;
+    bottom: 0;
+    background: hsl(0, 1%, 72%, .1);
+    left: 0;
+    width: 100%;
+    /*padding: 5px; Lo descolocaría al no utilizar border-box*/
+    text-align: center;
+    color: #fff;
+}
+/* buttons */
+.home1Text .buttons  {
+    position: absolute;
+    top: 40%;
+    width:  100%;
+}
+.home1Text .buttons .next {
+    font-size: 2rem;
+    right: 0;
+    position: absolute;
+    cursor: pointer;
+    width: 50px;
+    text-align: center;
+}    
+.home1Text .buttons .prev {
+    font-size: 2rem;
+    left: 0;
+    position: absolute;
+    cursor: pointer;
+    width: 50px;
+    text-align: center;
+}   
+.home1Text .buttons .next:hover {
+    background: hsl(0, 0%, 25%);
+    color: hsl(0, 0%, 93%);
+}
+.home1Text .buttons .prev:hover {
+    background: hsl(0, 0%, 25%);
+    color: hsl(0, 0%, 93%);
+}
+
+/* slider animation */
+.home1Text ul li {
+    animation-name: fade;
+    animation-duration: 2.5s;
+}
+  
+@keyframes fade {
+    from {opacity: .2} 
+    to {opacity: 1}
 }
