@@ -80,11 +80,18 @@ function iniciar() {
  */
 function progreso() {
     let scroll = document.documentElement.scrollTop;
-    let height = document.documentElement.scrollTop - document.documentElement.scrollHeight;
+    let docHeight = document.documentElement.scrollHeight;
+    let winHeight = window.innerHeight;
+    
 
-    let total = Math.abs(scroll/height)*100;
+    let porcentaje = (scroll) / (docHeight-winHeight);
 
-    console.log(total);
+    let total = Math.round(porcentaje*100);
+
+
+    //console.log(docHeight, winHeight);
+    console.log("total:" + total);
+
 
     if(total > 0) {
         //document.querySelector("nav").style.opacity = 0.5;
