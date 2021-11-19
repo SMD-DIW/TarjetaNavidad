@@ -1,0 +1,1 @@
+El mockup es el proyecto subido a GIT, con lo cual está en la raíz de este directorio (../../)

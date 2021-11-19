@@ -15,7 +15,8 @@ nav {
     color: white;
     background-color: #4C566A;
 
- 
+    border-right: 2px solid black;
+
 
     position: fixed; /* Revisar, el main atraviesa el nav. */
     
@@ -55,6 +56,13 @@ nav div:nth-child(1) {
     margin-top: 25px;
 }
 
+
+/**
+    ============================
+            MAIN
+    ============================
+*/
+
 main {
     width: 100%; /* REVISAR ****** */
     height: 100%; /* Establecemos al 100% el ancho en el ViewPort */
@@ -63,29 +71,90 @@ main {
     background-color: aliceblue;
 }
 
-/* Margen aplicado a todos los divs del main (unicamente los homes) */
+.redes {
 
+    
+
+    position: absolute;
+    top:40%;
+    transform: rotate(90deg);
+
+    right: 10%;
+}
+.redes > a {
+    text-decoration: none;
+    color: white;
+    margin-right: 10px;
+
+    font-weight: bold;
+}
+
+/* -- General DIVs */
 main > div {
     margin-left: 150px;
+    height: 100vh; /* Ponemos que ocupe toda la pantalla. */
 
 }
 
 .home2Text {
+    
+    margin: 30%;
+
     padding: 10px;
 }
 
 .home2Text h2 {
-    margin-top: 50px;
     font-size: 60px;
 }
 
 
+.imgSecc1 {
+    float: left;
+}
+
+hr {
+    clear: both;
+}
 
 #barra {
     width: 0%;
     position: fixed;
     z-index: 1;
     background-color: orange;
+}
+
+/**
+    ============================
+            FOOTER
+    ============================
+*/
+
+footer {
+    border-top: 1px solid black;
+    margin-left: 150px;
+
+    padding: 10px;
+    z-index: 5;
+    background-color: white;
+}
+#fDireccion {
+    width: 100px;
+    float: left;
+}
+#fContacto {
+    width: 100px;
+
+    float: left;
+}
+#fSocialMedia{
+    width: 500px;
+
+    float: left;
+}
+
+#copy {
+    clear:left;
+    border-top: 1px solid black;
 }
 
 
@@ -97,6 +166,7 @@ main > div {
 .home1Text {
     box-shadow: 5px 5px hsl(0, 0%, 76%);
     position: relative;
+
 }
 .home1Text ul {
     list-style-type: none;
@@ -114,7 +184,11 @@ main > div {
 .home1Text ul li img {
     height: 100%;
     width: 100%;
-    object-fit: cover;
+
+    /* USAR EN OTRA IMAGEN
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    animation-name: gradients;*/
 }
 
 /* Texto del medio del slider */
@@ -150,6 +224,8 @@ main > div {
 }
 .home1Text .buttons .next {
     font-size: 2rem;
+    background: hsl(0, 0%, 25%);
+    color: hsl(0, 0%, 93%);
     right: 0;
     position: absolute;
     cursor: pointer;
@@ -158,6 +234,8 @@ main > div {
 }    
 .home1Text .buttons .prev {
     font-size: 2rem;
+    background: hsl(0, 0%, 25%);
+    color: hsl(0, 0%, 93%);
     left: 0;
     position: absolute;
     cursor: pointer;
@@ -165,12 +243,10 @@ main > div {
     text-align: center;
 }   
 .home1Text .buttons .next:hover {
-    background: hsl(0, 0%, 25%);
-    color: hsl(0, 0%, 93%);
+    padding-right: 5px;
 }
 .home1Text .buttons .prev:hover {
-    background: hsl(0, 0%, 25%);
-    color: hsl(0, 0%, 93%);
+    padding-left: 5px;
 }
 
 /* slider animation */
@@ -182,4 +258,25 @@ main > div {
 @keyframes fade {
     from {opacity: .2} 
     to {opacity: 1}
+}
+
+@keyframes gradients {
+	0% {
+		background-position: 0 0;
+	}
+	25% {
+		background-position: 50% 0;
+	}
+	50% {
+		background-position: 90% 0;
+	}
+	60% {
+		background-position: 60%;
+	}
+	75% {
+		background-position: 40%;
+	}
+	100% {
+		background-position: 0 0;
+	}
 }

@@ -8,6 +8,10 @@
 
 'use strict';
 
+//Constantes:
+const INICIO = 0;
+const PRIMSECCION = 0;
+
 window.onload = iniciar;
 
 window.addEventListener("scroll",progreso);
@@ -98,7 +102,7 @@ function progreso() {
         document.querySelector("nav").style.backgroundColor = "#222";
         navPuntos(1);
     }
-    else if(total == 0) {
+    else if(total == INICIO) {
         document.querySelector("nav").style.backgroundColor = "#4C566A";
         navPuntos(0);
     }
