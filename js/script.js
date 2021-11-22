@@ -15,7 +15,7 @@ const PRIMSECCION = 0;
 window.onload = iniciar;
 
 window.addEventListener("scroll",progreso);
-
+window.onclick = clicks;
 
 function iniciar() {
 

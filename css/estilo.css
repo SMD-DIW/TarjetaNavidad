@@ -65,7 +65,7 @@ nav div:nth-child(1) {
 
 main {
     width: 100%; /* REVISAR ****** */
-    height: 100%; /* Establecemos al 100% el ancho en el ViewPort */
+    /*height: 100%;  Establecemos al 100% el ancho en el ViewPort */
 
 
     background-color: aliceblue;
@@ -98,7 +98,7 @@ main > div {
 
 .home2Text {
     
-    margin: 30%;
+    margin: 0 30%;
 
     padding: 10px;
 }
@@ -112,6 +112,28 @@ main > div {
     float: left;
 }
 
+.home3Text {
+    
+    margin: 0 30%;
+
+    padding: 10px;
+}
+
+.home3Text h2 {
+    font-size: 60px;
+}
+
+.minijuego {
+    border-top: 1px solid black;
+    height: 200px;
+}
+
+.minijuego, img {
+    height: 550px;
+    text-align: center;
+}
+
+
 hr {
     clear: both;
 }
@@ -120,7 +142,7 @@ hr {
     width: 0%;
     position: fixed;
     z-index: 1;
-    background-color: orange;
+    background-color: #b00;
 }
 
 /**
