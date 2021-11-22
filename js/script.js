@@ -145,6 +145,8 @@ function navPuntos(n) {
     document.querySelectorAll("nav .puntos")[n].style.backgroundColor = "black";
 }
 
+let draggedItem = null;
+
 /**
  * Función de clicks del minijuego principal.
  */
@@ -163,15 +165,36 @@ function miniGameClicks(event) {
     //Primer inicio, poner animación.
     if(isMGStarted){
         console.log("Iniciando minijuego...");
-        mapa.src = "recursos/minigame.jpg";
+        mapa.src = "recursos/imgs/chrismasTree.jpg";
 
+        //Creamos las bolas de navidad para el árbol...
         let regalo = document.createElement("img");
-        regalo.src = "recursos/imgs/giftbox.png";
+        regalo.src = "recursos/imgs/bauble.png";
         regalo.classList.add("regalo");
         div.appendChild(regalo);
 
-        regalo.style.top = `${medidas+event.clientY}px`;
-        regalo.style.left = `${event.clientX}px`;
+        regalo.style.top = `${medidas+512}px`;
+        regalo.style.left = `500px`;
+
+        //Checks drags
+        regalo.addEventListener("dragstart", function(e) {
+            draggedItem = regalo;
+            setTimeout(() => {
+                regalo.style.display = "none";
+            }, 0);
+        });
+
+        regalo.addEventListener("dragend", function(e) {
+            setTimeout(() => {
+                regalo.style.display = "block";
+                draggedItem = null;
+            }, 0);
+        });
+
+        regalo.addEventListener("drop", function(e) {
+            //Apend del regalo
+        });
+
     }
     
     //console.log(event.target);

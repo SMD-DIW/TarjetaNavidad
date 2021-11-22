@@ -169,19 +169,47 @@ footer {
     z-index: 5;
     background-color: white;
 }
+#fInfo {
+    padding-left: 30%;
+    height: 70px;
+}
 #fDireccion {
-    width: 100px;
+    width: 200px;
     float: left;
+    border-right: 2px solid rgb(23, 93, 158);
 }
-#fContacto {
-    width: 100px;
 
-    float: left;
+#titleDir {
+
+    text-align: center;
+    font-weight: bold;
 }
+
+
+#titleMedia {
+
+    text-align: center;
+    font-weight: bold;
+}
+
+
 #fSocialMedia{
-    width: 500px;
+    width: 300px;
+
 
     float: left;
+}
+
+#titleMedia {
+
+    text-align: center;
+    font-weight: bold;
+}
+
+#fSocialMedia > a{
+    padding: 0 20px 0 20px;
+
+    color: black;
 }
 
 #copy {
