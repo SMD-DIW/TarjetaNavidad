@@ -93,6 +93,7 @@ main {
 main > div {
     margin-left: 150px;
     height: 100vh; /* Ponemos que ocupe toda la pantalla. */
+    border-bottom: 1px solid black;
 
 }
 
@@ -100,7 +101,8 @@ main > div {
     
     margin: 0 30%;
 
-    padding: 10px;
+    padding: 30% 10px;
+
 }
 
 .home2Text h2 {
@@ -116,7 +118,10 @@ main > div {
     
     margin: 0 30%;
 
-    padding: 10px;
+    padding: 30% 10px;
+
+    border-bottom: 1px solid black;
+
 }
 
 .home3Text h2 {
@@ -124,13 +129,18 @@ main > div {
 }
 
 .minijuego {
-    border-top: 1px solid black;
+    border-bottom: 0;
     height: 200px;
 }
 
 .minijuego, img {
     height: 550px;
     text-align: center;
+}
+
+.regalo {
+    position: absolute;
+    height: 30px;
 }
 
 
