@@ -22,6 +22,9 @@ let isMGStarted = false;
 let sumaBombilla = 0;   
 
 
+let tSlider = undefined; //Total de sliders
+
+
 
 window.onload = iniciar;
 
@@ -36,10 +39,10 @@ function iniciar() {
     let slide = 0;
 
     //Total de sliders
-    let slides = document.querySelectorAll(".home1Text ul li");
+    tSlider = document.querySelectorAll(".home1Text ul li");
 
     //Muestra el total de elementos que hay.
-    let total = slides.length-1;
+    let total = tSlider.length-1;
 
     //Calculo cuantas secciones hay y creo puntos.
     let seccionesTotal = document.querySelectorAll("main > div").length;
@@ -90,14 +93,16 @@ function iniciar() {
         showSlider(slide);
     })
 
-    /**
-     * Muestra los sliders pasados por parametro.
-     * @param {Number} n - Numero del slide del que quieres mostrar.
-     */
-    function showSlider(n) {
-        for (let i = 0; i < slides.length; i++) 
-            (i == n) ? slides[n].style.display = "block" : slides[i].style.display = "none";
-    }
+}
+
+
+/**
+    * Muestra los sliders pasados por parametro.
+    * @param {Number} n - Numero del slide del que quieres mostrar.
+*/
+function showSlider(n) {
+    for (let i = 0; i < tSlider.length; i++) 
+        (i == n) ? tSlider[n].style.display = "block" : tSlider[i].style.display = "none";
 }
 
 
