@@ -130,8 +130,10 @@ function progreso() {
     }
     else if(total >= 74 && total < 96) {
         navPuntos(2);
+        document.getElementById("santaImg").style.display= "none";
     }
     else if(total >= 96) {
+        document.getElementById("santaImg").style.display= "block";
         navPuntos(3);
     }
     /*else if(total > 37) { 

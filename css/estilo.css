@@ -149,6 +149,18 @@ main > div {
     text-align: center;
 }
 
+#santaImg {
+    position: absolute;
+    top:0px;
+
+    display: none;
+
+    transform: rotate(60deg);
+
+    height: 40vh;
+    right: -450px;
+}
+
 .regalo {
     position: absolute;
     height: 30px;
