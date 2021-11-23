@@ -133,8 +133,6 @@ main > div {
 
     padding: 30% 10px;
 
-    border-bottom: 1px solid black;
-
 }
 
 .home3Text h2 {
@@ -142,7 +140,7 @@ main > div {
 }
 
 .minijuego {
-    border-bottom: 0;
+    border-bottom: 0; /* Reseteo el estilo aplicado por los divs */
     height: 200px;
 }
 
