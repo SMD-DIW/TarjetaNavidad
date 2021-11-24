@@ -18,7 +18,8 @@
 
 body {
     width: 100%;
-    height: 100vh;
+    height: 100vh;/* Establecemos al 100% el ancho en el ViewPort */
+    /* La unidad vh es igual al 1% de la altura de la ventana */
     box-sizing: border-box;
 
 }
@@ -37,8 +38,8 @@ nav {
     text-align: center;
 
     width: 150px; 
-    height: 100%; /* Establecemos al 100% el ancho en el ViewPort */
-    /* La unidad vh es igual al 1% de la altura de la ventana */
+    height: 100%; 
+    
 
 
 }
@@ -289,6 +290,7 @@ footer {
     margin-top: 20px;
 }
 #fDireccion {
+    text-align: center;
     width: 200px;
     float: left;
     border-right: 2px solid rgb(23, 93, 158);
@@ -296,14 +298,7 @@ footer {
 
 #titleDir {
 
-    text-align: center;
-    font-weight: bold;
-}
-
-
-#titleMedia {
-
-    text-align: center;
+    padding-left: 50px;
     font-weight: bold;
 }
 
@@ -316,8 +311,7 @@ footer {
 }
 
 #titleMedia {
-
-    text-align: center;
+    padding-left: 50px;
     font-weight: bold;
 }
 
@@ -435,6 +429,7 @@ footer {
     to {opacity: 1}
 }
 
+/* Animación a añadir proximamente */
 @keyframes gradients {
 	0% {
 		background-position: 0 0;
@@ -544,5 +539,31 @@ footer {
     }
     100% {
       box-shadow: none;
+    }
+}
+
+/**
+    ============================
+            Media Queries
+    ============================
+*/
+@media screen and (max-width: 900px) {
+    #fDireccion {
+      float: none;
+      width: 50%;
+    }
+    #titleDir {
+        float: none;
+        width: 50%;
+    }
+    #fSocialMedia {
+        float: none;
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    #santaImg {
+        right: -50px;
     }
 }
