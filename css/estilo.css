@@ -187,7 +187,7 @@ hr {
     padding: 20px;
     margin: 0 auto;
     
-    position: absolute;
+    position: absolute; /* Establecemos que sea absoluta las luces. */
     left: 200px;
    
 }
@@ -261,7 +261,7 @@ hr {
     background: var(--theme-color-four);
     animation-name: light-up-theme-color-four;
 }
-  
+
 .light-bulb.theme-color-five {
     display: none;
 
@@ -285,7 +285,8 @@ footer {
 }
 #fInfo {
     padding-left: 30%;
-    height: 70px;
+    height: 100px;
+    margin-top: 20px;
 }
 #fDireccion {
     width: 200px;
