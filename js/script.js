@@ -19,7 +19,9 @@ let winHeight;
 let mapa = document.querySelector(".minijuego img");
 let isMGStarted = false;
 
-let sumaBombilla = 0;   
+let sumaBombilla = 0;
+
+let draggedItem = null;
 
 
 let tSlider = undefined; //Total de sliders
@@ -120,9 +122,19 @@ function progreso() {
 
     console.log("total:" + total);
 
+    //Selecciona el top total en pixeles del div requerido.
+    let top2 = document.getElementsByClassName("home2Text")[0].offsetTop;
 
     //CAMBIAR
     
+    if(total > 0 && total <= 9) {
+        window.scrollTo(0,top2);
+    }
+
+    if(total < 12 && total > 10)
+        window.scrollTo(0,0);
+
+
     if(total == INICIO) {
         document.querySelector("nav").style.backgroundColor = "#4C566A";
 
@@ -184,7 +196,6 @@ function navPuntos(n) {
     document.querySelectorAll("nav .puntos")[n].style.backgroundColor = "black";
 }
 
-let draggedItem = null;
 
 /**
  * Función de clicks del minijuego principal.
