@@ -113,20 +113,31 @@ main > div {
 
 .home2Text {
     
-    margin: 0 30%;
+    /*margin: 0 20%;*/
 
-    padding: 30% 10px;
+    padding: 20% 0 20% 20%;
+
+}
+
+#libro img {
+    float:left;
+    height: 250px;
 
 }
 
 .home2Text h2 {
-    font-size: 60px;
-}
-
-
-.imgSecc1 {
     float: left;
+
+    padding: 40px 0 0 40px;
+
+    width: 30%;
+    font-size: 30px;
 }
+
+
+/*.imgSecc1 {
+    float: left;
+}*/
 
 .home3Text {
     

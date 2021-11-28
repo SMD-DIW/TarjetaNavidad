@@ -127,12 +127,12 @@ function progreso() {
 
     //CAMBIAR
     
-    if(total > 0 && total <= 9) {
+    if(total > 0 && total <= 14) {
         window.scrollTo(0,top2);
     }
 
-    if(total < 12 && total > 10)
-        window.scrollTo(0,0);
+    if(total < 30 && total > 16)
+        window.scrollTo(0,0); 
 
 
     if(total == INICIO) {
@@ -140,12 +140,12 @@ function progreso() {
 
         navPuntos(0);
     }
-    else if(total >= 37 && total < 74) {
+    else if(total >= 35 && total < 65) {
         document.querySelector("nav").style.backgroundColor = "#222";
 
         navPuntos(1);
     }
-    else if(total >= 74 && total < 96) {
+    else if(total >= 66 && total < 96) {
         navPuntos(2);
         document.getElementById("santaImg").style.display= "none";
     }
