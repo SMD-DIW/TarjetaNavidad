@@ -217,6 +217,10 @@ function miniGameClicks(event) {
         console.log("Iniciando minijuego...");
         mapa.src = "recursos/imgs/chrismasTree.jpg";
 
+        let divBolas = document.createElement("div");
+        divBolas.classList.add("inputsBolas");
+        div.appendChild(divBolas);
+
         //Creamos las bolas de navidad para el árbol...
         let regalo = document.createElement("img");
         regalo.src = "recursos/imgs/bauble.png";
@@ -238,11 +242,16 @@ function miniGameClicks(event) {
             setTimeout(() => {
                 regalo.style.display = "block";
                 draggedItem = null;
+                e.target.append(regalo);
+
+                console.log(e);
             }, 0);
         });
 
         regalo.addEventListener("drop", function(e) {
             //Apend del regalo
+            e.target.append(regalo);
+            console.log("DROP");
         });
 
     }
