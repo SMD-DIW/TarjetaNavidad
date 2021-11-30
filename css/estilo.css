@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -86,13 +89,9 @@ main {
     /*height: 100%;  Establecemos al 100% el ancho en el ViewPort */
 
 
-    background-color: aliceblue;
 }
 
 .redes {
-
-    
-
     position: absolute;
     top:40%;
     transform: rotate(90deg);
@@ -132,18 +131,13 @@ main > div {
 .home2Text h2 {
     float: left;
 
+    font-family: 'Roboto', sans-serif;
+
     padding: 40px 0 0 40px;
 
     width: 30%;
     font-size: 30px;
 }
-
-
-/*.imgSecc1 {
-    float: left;
-}*/
-
-
 
 .home3Text {
     
@@ -153,29 +147,42 @@ main > div {
     padding: 20% 0 20% 20%;
     
     height: 100%;
+}
 
+#imgFrase {
+    float: right;
 }
 
 .home3Text h2 {
-    font-size: 60px;
+    float: left;
+    font-size: 30px;
+    font-family: 'Roboto', sans-serif;
 }
 
 .minijuego {
+    clear: both;
     border-bottom: 0; /* Reseteo el estilo aplicado por los divs */
     height: auto;
     text-align: center;
+    float: left;
 }
 
 .minijuego img {
     height: 400px;
 }
 
-.inputsBolas {
+.regalo {
     position: absolute;
-    left: 0;
-    width:50px;
     height: 30px;
-    background-color: gray;
+}
+
+.rndItem {
+    float: right;
+    width: 50px;
+    height: 20px;
+    border: 2px solid black;
+    margin: auto;
+
 }
 
 /* SANTA CLAUS DIANA */
@@ -190,12 +197,6 @@ main > div {
     height: 40vh;
     right: -450px;
 }
-
-.regalo {
-    position: relative;
-    height: 30px;
-}
-
 
 hr {
     clear: both;
@@ -305,6 +306,7 @@ hr {
 */
 
 footer {
+    clear: both;
     border-top: 1px solid black;
     margin-left: 150px;
 
@@ -313,6 +315,7 @@ footer {
     background-color: white;
 }
 #fInfo {
+    font-family: 'Outfit';
     padding-left: 30%;
     height: 200px;
     margin-top: 20px;
@@ -351,6 +354,8 @@ footer {
 
 #copy {
     clear:left;
+    font-weight: bold;
+    font-family: 'Oswald', sans-serif;
     border-top: 1px solid black;
 }
 

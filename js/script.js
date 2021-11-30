@@ -30,9 +30,17 @@ let tSlider = undefined; //Total de sliders
 
 window.onload = iniciar;
 
+
 window.addEventListener("scroll",progreso);
 
 function iniciar() {
+
+    //Mute del video
+    let video = document.querySelector("iframe")
+    video.volume = 0;
+    video.muted = true;
+    console.log(video);
+    
 
     //Inicio minijuego
     mapa.onclick = miniGameClicks;
@@ -211,7 +219,7 @@ function miniGameClicks(event) {
     isMGStarted = true;
 
     //Bloqueo drags
-    mapa.addEventListener("dragstart", (event) => event.preventDefault());
+    //mapa.addEventListener("dragstart", (event) => event.preventDefault());
 
     //Vars de bloque
     let div = document.getElementsByClassName("minijuego")[0];
@@ -220,64 +228,37 @@ function miniGameClicks(event) {
     //Primer inicio, poner animación.
     if(isMGStarted){
         console.log("Iniciando minijuego...");
-        mapa.src = "recursos/imgs/chrismasTree.jpg";
+        mapa.src = "imgs/chrismasTree.jpg";
 
-        let divBolas = document.createElement("div");
-        divBolas.classList.add("inputsBolas");
+        let divItem = document.querySelector(".rndItem");
 
-        //Calculo de posiciones para el div para cada árbol.
-        divBolas.style.left = `${document.getElementsByClassName("minijuego")[0].offsetLeft}px`;
-        divBolas.style.top = `${document.getElementsByClassName("minijuego")[0].offsetTop}px`;
+        //El minijuego consiste en que saldrán distintas decoraciones
+        //en las que serán correctas o incorrectas
 
-        div.appendChild(divBolas);
+        let arrayDecoraciones = ["imgs/ig.jpg","imgs/bauble.png","imgs/bolaNieve.jpg"];
+        let rndElement = arrayDecoraciones[Math.floor(Math.random()*arrayDecoraciones.length)];
+    
+        //previewRndItem
+        let previewItem = document.createElement("img");
+        previewItem.src = rndElement;
+        previewItem.classList.add("regalo");
+        previewItem.style.height = "20px";
+        divItem.appendChild(previewItem);
 
-        //Creamos las bolas de navidad para el árbol...
+        //Se crea el elemento en la posición especificada por el usuario
         let regalo = document.createElement("img");
-        regalo.src = "recursos/imgs/bauble.png";
+        regalo.src = rndElement;
         regalo.classList.add("regalo");
         regalo.style.height = "20px";
-
-        //Calculo de medidas para posicionar las bolas para el árbol
-        regalo.style.top = `${document.getElementsByClassName("minijuego")[0].offsetTop-medidas}px`;
-        regalo.style.left = `${document.getElementsByClassName("minijuego")[0].offsetLeft+20}px`;
-
         div.appendChild(regalo);
 
+        regalo.style.top = `${medidas+event.clientY}px`;
+        regalo.style.left = `${event.clientX}px`;
+
+        //previewItem.remove();
+
         
-
-
-        //Checks drags
-        divBolas.addEventListener("dragenter", function(e) {
-            draggedItem = regalo;
-            setTimeout(() => {
-                regalo.style.display = "none";
-            }, 0);
-        });
-
-        divBolas.addEventListener("dragleave", function(e) {
-            setTimeout(() => {
-                regalo.style.display = "block";
-                draggedItem = null;
-                e.target.append(regalo);
-
-                console.log("TOP: "+document.getElementsByClassName("inputsBolas")[0].offsetTop-medidas);
-                console.log("left: "+document.getElementsByClassName("inputsBolas")[0].offsetLeft);
-
-                regalo.style.top = `${document.getElementsByClassName("inputsBolas")[0].offsetTop-medidas}px`;
-                regalo.style.left = `${document.getElementsByClassName("inputsBolas")[0].offsetLeft-medidas}px`;
-
-
-                console.log(e);
-            }, 0);
-        });
-
-        divBolas.addEventListener("drop", function() {
-            //Apend del regalo
-            ///e.target.append(regalo);
-            divBolas.appendChild(regalo);
-            console.log("DROP");
-        });
+  
+        console.log(regalo);
     }
-    
-    //console.log(event.target);
 }
