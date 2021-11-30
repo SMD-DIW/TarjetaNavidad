@@ -16,11 +16,15 @@
    
 }
 
+/*html {
+    width: 1400px;
+}*/
+
 body {
     width: 100%;
     height: 100vh;/* Establecemos al 100% el ancho en el ViewPort */
     /* La unidad vh es igual al 1% de la altura de la ventana */
-    box-sizing: border-box;
+    /*box-sizing: border-box;*/
 
 }
 
@@ -167,10 +171,10 @@ main > div {
 }
 
 .inputsBolas {
-    position: relative;
+    position: absolute;
     left: 0;
-    width:200px;
-    height: 200px;
+    width:50px;
+    height: 30px;
     background-color: gray;
 }
 
@@ -188,7 +192,7 @@ main > div {
 }
 
 .regalo {
-    position: absolute;
+    position: relative;
     height: 30px;
 }
 

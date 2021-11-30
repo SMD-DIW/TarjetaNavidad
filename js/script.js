@@ -224,16 +224,27 @@ function miniGameClicks(event) {
 
         let divBolas = document.createElement("div");
         divBolas.classList.add("inputsBolas");
+
+        //Calculo de posiciones para el div para cada árbol.
+        divBolas.style.left = `${document.getElementsByClassName("minijuego")[0].offsetLeft}px`;
+        divBolas.style.top = `${document.getElementsByClassName("minijuego")[0].offsetTop}px`;
+
         div.appendChild(divBolas);
 
         //Creamos las bolas de navidad para el árbol...
         let regalo = document.createElement("img");
         regalo.src = "recursos/imgs/bauble.png";
         regalo.classList.add("regalo");
+        regalo.style.height = "20px";
+
+        //Calculo de medidas para posicionar las bolas para el árbol
+        regalo.style.top = `${document.getElementsByClassName("minijuego")[0].offsetTop-medidas}px`;
+        regalo.style.left = `${document.getElementsByClassName("minijuego")[0].offsetLeft+20}px`;
+
         div.appendChild(regalo);
 
-        regalo.style.top = `${medidas+512}px`;
-        regalo.style.left = `500px`;
+        
+
 
         //Checks drags
         divBolas.addEventListener("dragenter", function(e) {
@@ -249,24 +260,23 @@ function miniGameClicks(event) {
                 draggedItem = null;
                 e.target.append(regalo);
 
-                console.log("TOP: "+document.getElementsByClassName("inputsBolas")[0].offsetTop);
+                console.log("TOP: "+document.getElementsByClassName("inputsBolas")[0].offsetTop-medidas);
                 console.log("left: "+document.getElementsByClassName("inputsBolas")[0].offsetLeft);
 
-                regalo.style.top = `${document.getElementsByClassName("inputsBolas")[0].offsetTop}px`;
-                regalo.style.left = `${document.getElementsByClassName("inputsBolas")[0].offsetLeft}px`;
+                regalo.style.top = `${document.getElementsByClassName("inputsBolas")[0].offsetTop-medidas}px`;
+                regalo.style.left = `${document.getElementsByClassName("inputsBolas")[0].offsetLeft-medidas}px`;
 
 
                 console.log(e);
             }, 0);
         });
 
-        divBolas.addEventListener("drop", function(e) {
+        divBolas.addEventListener("drop", function() {
             //Apend del regalo
             ///e.target.append(regalo);
             divBolas.appendChild(regalo);
             console.log("DROP");
         });
-
     }
     
     //console.log(event.target);
