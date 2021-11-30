@@ -139,11 +139,16 @@ main > div {
     float: left;
 }*/
 
+
+
 .home3Text {
     
-    margin: 0 30%;
+    /*margin: 0 30%;
 
-    padding: 20% 10px;
+    padding: 20% 10px;*/
+    padding: 20% 0 20% 20%;
+    
+    height: 100%;
 
 }
 
@@ -153,12 +158,12 @@ main > div {
 
 .minijuego {
     border-bottom: 0; /* Reseteo el estilo aplicado por los divs */
-    height: 200px;
+    height: auto;
+    text-align: center;
 }
 
-.minijuego, img {
-    height: 550px;
-    text-align: center;
+.minijuego img {
+    height: 400px;
 }
 
 .inputsBolas {
@@ -372,6 +377,16 @@ footer {
 .home1Text ul li img {
     height: 100%;
     width: 100%;
+
+    /* USAR EN OTRA IMAGEN
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    animation-name: gradients;*/
+}
+
+.home1Text ul li iframe {
+    height: 100%;
+    width: 99%;
 
     /* USAR EN OTRA IMAGEN
     animation-duration: 20s;

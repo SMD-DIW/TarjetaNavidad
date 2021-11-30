@@ -68,6 +68,11 @@ function iniciar() {
         if (slide > total) slide = 0;
 
         showSlider(slide);
+
+        //Si estamos en el slider 2 esperamos un tiempo antes de mostrar el siguiente slider
+        if(slide==0) setTimeout(() => showSlider(slide),40000);
+        //console.log(slide + " y sale");
+
     }, Math.floor(Math.random()*10000)+5400);
 
     //Botones siguiente y atrás
@@ -231,26 +236,34 @@ function miniGameClicks(event) {
         regalo.style.left = `500px`;
 
         //Checks drags
-        regalo.addEventListener("dragstart", function(e) {
+        divBolas.addEventListener("dragenter", function(e) {
             draggedItem = regalo;
             setTimeout(() => {
                 regalo.style.display = "none";
             }, 0);
         });
 
-        regalo.addEventListener("dragend", function(e) {
+        divBolas.addEventListener("dragleave", function(e) {
             setTimeout(() => {
                 regalo.style.display = "block";
                 draggedItem = null;
                 e.target.append(regalo);
 
+                console.log("TOP: "+document.getElementsByClassName("inputsBolas")[0].offsetTop);
+                console.log("left: "+document.getElementsByClassName("inputsBolas")[0].offsetLeft);
+
+                regalo.style.top = `${document.getElementsByClassName("inputsBolas")[0].offsetTop}px`;
+                regalo.style.left = `${document.getElementsByClassName("inputsBolas")[0].offsetLeft}px`;
+
+
                 console.log(e);
             }, 0);
         });
 
-        regalo.addEventListener("drop", function(e) {
+        divBolas.addEventListener("drop", function(e) {
             //Apend del regalo
-            e.target.append(regalo);
+            ///e.target.append(regalo);
+            divBolas.appendChild(regalo);
             console.log("DROP");
         });
 
