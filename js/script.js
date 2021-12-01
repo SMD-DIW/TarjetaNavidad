@@ -37,8 +37,7 @@ function iniciar() {
 
     //Mute del video
     let video = document.querySelector("iframe")
-    video.volume = 0;
-    video.muted = true;
+    video.controls = "autoplay muted";
     console.log(video);
     
 
@@ -255,9 +254,7 @@ function miniGameClicks(event) {
         regalo.style.top = `${medidas+event.clientY}px`;
         regalo.style.left = `${event.clientX}px`;
 
-        //previewItem.remove();
-
-        
+        //previewItem.remove();   
   
         console.log(regalo);
     }

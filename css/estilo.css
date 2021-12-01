@@ -144,7 +144,7 @@ main > div {
     /*margin: 0 30%;
 
     padding: 20% 10px;*/
-    padding: 20% 0 20% 20%;
+    padding: 20% 5% 20% 15%;
     
     height: 100%;
 }
@@ -153,9 +153,14 @@ main > div {
     float: right;
 }
 
+#imgFrase > img {
+    height: 200px;
+}
+
 .home3Text h2 {
     float: left;
     font-size: 30px;
+    width: 380px;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -310,7 +315,7 @@ footer {
     border-top: 1px solid black;
     margin-left: 150px;
 
-    padding: 10px;
+    /*padding: 10px;*/
     z-index: 5;
     background-color: white;
 }
@@ -352,6 +357,11 @@ footer {
     color: black;
 }
 
+#fSocialMedia > a:hover{
+    
+
+    color: cyan;
+}
 #copy {
     clear:left;
     font-weight: bold;
@@ -634,5 +644,17 @@ footer {
     }
     main > div {
         margin-left: 0;
+    }
+    .home2Text {
+        padding: 10% 0;
+    }
+    .home2Text .imgSecc1 {
+        padding: 10% 0;
+
+        float: none;
+        width: 100%;
+    }
+    .home3Text {
+        padding: 0;
     }
 }
