@@ -234,7 +234,7 @@ function miniGameClicks(event) {
         //El minijuego consiste en que saldrán distintas decoraciones
         //en las que serán correctas o incorrectas
 
-        let arrayDecoraciones = ["imgs/ig.jpg","imgs/bauble.png","imgs/bolaNieve.jpg"];
+        let arrayDecoraciones = ["imgs/ig.png","imgs/bauble.png","imgs/bolaNieve.png"];
         let rndElement = arrayDecoraciones[Math.floor(Math.random()*arrayDecoraciones.length)];
     
         //previewRndItem
