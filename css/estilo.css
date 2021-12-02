@@ -406,16 +406,11 @@ footer {
 .home1Text ul li iframe {
     height: 100%;
     width: 99%;
-
-    /* USAR EN OTRA IMAGEN
-    animation-duration: 20s;
-    animation-iteration-count: infinite;
-    animation-name: gradients;*/
 }
 
 /* Texto del medio del slider */
 .home1Text h1 {
-    position: absolute;
+    position: relative;
     top: 50%;
     left:50%;
     transform: translate(-50%,-50%); /* Centramos el texto. */
