@@ -36,8 +36,10 @@ window.addEventListener("scroll",progreso);
 function iniciar() {
 
     //Mute del video
-    let video = document.querySelector("iframe")
-    video.controls = "autoplay muted";
+    let video = document.querySelector("video")
+    //video.controls = "autoplay muted";
+    video.autoplay = true;
+    video.muted = false;
     console.log(video);
     
 
@@ -224,26 +226,20 @@ function miniGameClicks(event) {
     let div = document.getElementsByClassName("minijuego")[0];
     let medidas = parseFloat(docHeight-winHeight);
 
+    //precarga elementos
+
+    let rndElement = previewItem();
+
+
     //Primer inicio, poner animación.
     if(isMGStarted){
         console.log("Iniciando minijuego...");
         mapa.src = "imgs/chrismasTree.jpg";
 
-        let divItem = document.querySelector(".rndItem");
-
         //El minijuego consiste en que saldrán distintas decoraciones
         //en las que serán correctas o incorrectas
 
-        let arrayDecoraciones = ["imgs/ig.png","imgs/bauble.png","imgs/bolaNieve.png"];
-        let rndElement = arrayDecoraciones[Math.floor(Math.random()*arrayDecoraciones.length)];
-    
-        //previewRndItem
-        let previewItem = document.createElement("img");
-        previewItem.src = rndElement;
-        previewItem.classList.add("regalo");
-        previewItem.style.height = "20px";
-        divItem.appendChild(previewItem);
-
+       
         //Se crea el elemento en la posición especificada por el usuario
         let regalo = document.createElement("img");
         regalo.src = rndElement;
@@ -254,8 +250,33 @@ function miniGameClicks(event) {
         regalo.style.top = `${medidas+event.clientY}px`;
         regalo.style.left = `${event.clientX}px`;
 
-        //previewItem.remove();   
+        document.getElementById("preview").remove();   
+
+        //audio para el minijuego cada vez que se le de click.
+
+
   
         console.log(regalo);
     }
+}
+
+/**
+ * Función que previsualiza el siguiente item del minijuego
+ */
+function previewItem() {
+    let arrayDecoraciones = ["imgs/ig.png","imgs/bauble.png","imgs/bolaNieve.png"];
+
+    let rndElement = arrayDecoraciones[Math.floor(Math.random()*arrayDecoraciones.length)];
+    
+
+    let divItem = document.querySelector(".rndItem");
+
+    let previewItem = document.createElement("img");
+    previewItem.src = rndElement;
+    previewItem.id = "preview";
+    previewItem.classList.add("regalo");
+    previewItem.style.height = "20px";
+    divItem.appendChild(previewItem);
+
+    return rndElement;
 }
