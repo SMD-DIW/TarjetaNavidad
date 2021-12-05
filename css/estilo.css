@@ -176,6 +176,10 @@ main > div {
     height: 400px;
 }
 
+#h3Looser {
+    position: relative;
+}
+
 .regalo {
     position: absolute;
     height: 30px;

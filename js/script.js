@@ -108,7 +108,6 @@ function iniciar() {
         if (slide < 0) slide = total; //Ponemos el slider en la última posición.
         showSlider(slide);
     })
-
 }
 
 
@@ -142,12 +141,11 @@ function progreso() {
     //CAMBIAR
     
     if(total > 0 && total <= 14) {
-        window.scrollTo(0,top2);
+        setTimeout(window.scrollTo(0,top2),500);
     }
 
     if(total < 30 && total > 16)
-        window.scrollTo(0,0); 
-
+        setTimeout(window.scrollTo(0,0),500); 
 
     if(total == INICIO) {
         document.querySelector("nav").style.backgroundColor = "#4C566A";
@@ -210,9 +208,12 @@ function navPuntos(n) {
     document.querySelectorAll("nav .puntos")[n].style.backgroundColor = "black";
 }
 
-
+let timer = 0;
+let intervalo = undefined;
 /**
  * Función de clicks del minijuego principal.
+ * El minijuego consiste en que saldrán distintas decoraciones
+ * en las que serán correctas o incorrectas
  */
 function miniGameClicks(event) {
 
@@ -226,23 +227,28 @@ function miniGameClicks(event) {
     let div = document.getElementsByClassName("minijuego")[0];
     let medidas = parseFloat(docHeight-winHeight);
 
+    let rnd = rndItem();
+
+
     //precarga elementos
-
-    let rndElement = previewItem();
-
+    previewItem(rnd);
 
     //Primer inicio, poner animación.
     if(isMGStarted){
         console.log("Iniciando minijuego...");
         mapa.src = "imgs/chrismasTree.jpg";
 
-        //El minijuego consiste en que saldrán distintas decoraciones
-        //en las que serán correctas o incorrectas
+        //Comprobamos si has puesto una decoración no valida para el árbol
 
-       
+
+        //Una vez iniciado el minijuego, activamos el tiempo.
+        minigameChecks();
+
+        
+
         //Se crea el elemento en la posición especificada por el usuario
         let regalo = document.createElement("img");
-        regalo.src = rndElement;
+        regalo.src = rnd;
         regalo.classList.add("regalo");
         regalo.style.height = "20px";
         div.appendChild(regalo);
@@ -250,7 +256,7 @@ function miniGameClicks(event) {
         regalo.style.top = `${medidas+event.clientY}px`;
         regalo.style.left = `${event.clientX}px`;
 
-        document.getElementById("preview").remove();   
+        
 
         //audio para el minijuego cada vez que se le de click.
 
@@ -260,23 +266,65 @@ function miniGameClicks(event) {
     }
 }
 
+function minigameChecks() {
+    //Comprobaciones minijuego
+    timer = 0;
+    intervalo = setInterval(() => {
+        //setTimeout(() => {
+            //Poner todas las decoraciones que se pueda en X tiempo
+            timer++;
+            if(timer > 5) {
+                clearInterval(intervalo);
+                console.log(intervalo);
+            }
+        //}, 1000);
+    }, 1000);
+
+    setTimeout(() => {
+        if(timer > 5 ) {
+            clearInterval(intervalo);
+            console.error("¡Se acabó el tiempo!");
+            //Mensaje perdido en pantalla 
+            for(let i=0;i<document.querySelectorAll(".regalo").length;i++)
+                document.querySelectorAll(".regalo")[i].remove();
+            let h3 = document.createElement("h3");
+            h3.id = "h3Looser";
+            h3.textContent = "¡Has perdido!";
+
+            document.getElementsByClassName("minijuego")[0].appendChild(h3);
+        }
+    }, 6000);
+}
+
+/**
+ * Selecciona un item aleatoriamente
+ * @returns rutaImagen
+ */
+function rndItem() {
+    
+    let arrayDecoraciones = ["imgs/ig.png","imgs/bauble.png","imgs/bolaNieve.png"];
+
+    return arrayDecoraciones[Math.floor(Math.random()*arrayDecoraciones.length)];
+}
+
 /**
  * Función que previsualiza el siguiente item del minijuego
  */
-function previewItem() {
-    let arrayDecoraciones = ["imgs/ig.png","imgs/bauble.png","imgs/bolaNieve.png"];
+function previewItem(rnd) {
 
-    let rndElement = arrayDecoraciones[Math.floor(Math.random()*arrayDecoraciones.length)];
-    
+    //Eliminamos la preview si la hubiera
+    if(document.getElementById("preview")) document.getElementById("preview").remove();   
+
 
     let divItem = document.querySelector(".rndItem");
 
+    //let item = rndItem();
+
     let previewItem = document.createElement("img");
-    previewItem.src = rndElement;
+    previewItem.src = rnd;
     previewItem.id = "preview";
-    previewItem.classList.add("regalo");
+    previewItem.classList.add("regaloPr");
     previewItem.style.height = "20px";
     divItem.appendChild(previewItem);
 
-    return rndElement;
 }
