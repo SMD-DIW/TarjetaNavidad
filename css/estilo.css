@@ -139,21 +139,21 @@ main > div {
     font-size: 30px;
 }
 
-.home3Text {
-    
-    /*margin: 0 30%;
+.home3Text {    
 
-    padding: 20% 10px;*/
-    padding: 20% 5% 20% 15%;
     
-    height: 100%;
+    /*Anterior: padding: 20% 0 20% 20%; */
+    
+    /*padding: 300px 290px 300px 290px;*/
+    /* Se obtiene este resultado de (elemento / contenedor * 100) (300 / 1400) * 100 */
+    padding: 21.42857142857143% 14.28571428571429% 21.42857142857143% 14.28571428571429%;
 }
 
 #imgFrase {
     float: right;
 }
 
-#imgFrase > img {
+#imgFrase img {
     height: 200px;
 }
 

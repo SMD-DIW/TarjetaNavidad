@@ -259,7 +259,18 @@ function miniGameClicks(event) {
         
 
         //audio para el minijuego cada vez que se le de click.
+        /*let audio = document.createElement("audio");
+        audio.src = "recursos/clickMiniGame.mp3";
+        audio.controls = "controls";
+        audio.type = 'audio/mp3';*/
 
+        let audio = new Audio('recursos/clickMiniGame.mp3');
+        audio.play();
+        //audio.loop =true;
+        audio.playbackRate = 1.8;
+        //audio.pause();
+
+        //document.getElementsByClassName("minijuego")[0].appendChild(audio);
 
   
         console.log(regalo);
@@ -269,29 +280,33 @@ function miniGameClicks(event) {
 function minigameChecks() {
     //Comprobaciones minijuego
     timer = 0;
-    intervalo = setInterval(() => {
-        //setTimeout(() => {
-            //Poner todas las decoraciones que se pueda en X tiempo
-            timer++;
-            if(timer > 5) {
-                clearInterval(intervalo);
-                console.log(intervalo);
-            }
-        //}, 1000);
+    let h3 = undefined;
+    intervalo = setInterval(function() {
+        //Poner todas las decoraciones que se pueda en X tiempo
+        timer++;
+        if(timer > 5) {
+            clearInterval(intervalo); //No funciona si es una función tipo flecha el intervalo.
+            console.log(intervalo);
+        }
     }, 1000);
 
     setTimeout(() => {
         if(timer > 5 ) {
             clearInterval(intervalo);
-            console.error("¡Se acabó el tiempo!");
-            //Mensaje perdido en pantalla 
+            console.error("¡Se acabó el tiempo! y " + timer);
+
+            //Eliminamos todos los regalos
             for(let i=0;i<document.querySelectorAll(".regalo").length;i++)
                 document.querySelectorAll(".regalo")[i].remove();
-            let h3 = document.createElement("h3");
-            h3.id = "h3Looser";
-            h3.textContent = "¡Has perdido!";
 
-            document.getElementsByClassName("minijuego")[0].appendChild(h3);
+            //Mensaje perdido en pantalla 
+            if(!document.getElementById("h3Looser")) {
+                h3 = document.createElement("h3");
+                h3.id = "h3Looser";
+                h3.textContent = "¡Has perdido!";
+
+                document.getElementsByClassName("minijuego")[0].appendChild(h3);
+            }
         }
     }, 6000);
 }
@@ -302,7 +317,7 @@ function minigameChecks() {
  */
 function rndItem() {
     
-    let arrayDecoraciones = ["imgs/ig.png","imgs/bauble.png","imgs/bolaNieve.png"];
+    let arrayDecoraciones = ["imgs/minigame/ig.png","imgs/minigame/bauble.png","imgs/minigame/bolaNieve.png"];
 
     return arrayDecoraciones[Math.floor(Math.random()*arrayDecoraciones.length)];
 }
