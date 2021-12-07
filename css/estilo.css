@@ -118,8 +118,7 @@ main > div {
     
     /*margin: 0 20%;*/
 
-    padding: 20% 0 20% 20%;
-
+    padding: 300px 290px 300px 290px;
 }
 
 #libro img {
@@ -146,7 +145,7 @@ main > div {
     
     /*padding: 300px 290px 300px 290px;*/
     /* Se obtiene este resultado de (elemento / contenedor * 100) (300 / 1400) * 100 */
-    padding: 21.42857142857143% 14.28571428571429% 21.42857142857143% 14.28571428571429%;
+    padding: 300px 290px 300px 290px;
 }
 
 #imgFrase {
