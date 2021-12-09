@@ -32,16 +32,46 @@ window.onload = iniciar;
 
 
 window.addEventListener("scroll",progreso);
+document.getElementsByClassName("light-bulbs")[0].onmouseover = function(e) {
+    let bulb = new Audio('recursos/bombillaRota.mp3');
+    
+    //console.log(e.target.className);
+    if(e.target.className.startsWith("light-bulb theme")) {
+        let bombilla = e.target.classList;
+        document.querySelector("."+ bombilla.toString().replace(" ", ".")).remove();
+
+        //AUDIO
+        bulb.play();
+        //audio.loop =true;
+        //bulb.playbackRate = 1.8;
+    }
+    
+};
 
 function iniciar() {
 
     //Mute del video
     let video = document.querySelector("video")
-    //video.controls = "autoplay muted";
+    video.controls = "controls";
     video.autoplay = true;
     video.muted = false;
+    video.type = "video/mp4";
     console.log(video);
     
+    //SCROLL, relleno el constructor con datos básicos
+    const sr = ScrollReveal({
+        origin: "top",
+        distance: "90px",
+        duration: 1500,
+        delay: 300,
+        reset: true
+    });
+    //Establezco las animaciones.
+    sr.reveal(".home2Text", { origin: "left" });
+    sr.reveal(".home3Text", { origin: "top"} );
+    sr.reveal("footer", { origin: "bottom", delay: 100} );
+    sr.reveal("#fInfo", { origin: "bottom", delay: 600} );
+    sr.reveal("#copy", { origin: "bottom", delay: 600} );
 
     //Inicio minijuego
     mapa.onclick = miniGameClicks;
@@ -97,7 +127,7 @@ function iniciar() {
         //Comprobación para volver al primero
         if (slide > total) slide = 0;
         showSlider(slide);
-    })
+    });
 
     /** 
      * Botón atrás.
@@ -107,7 +137,7 @@ function iniciar() {
         slide--;
         if (slide < 0) slide = total; //Ponemos el slider en la última posición.
         showSlider(slide);
-    })
+    });    
 }
 
 
@@ -236,7 +266,7 @@ function miniGameClicks(event) {
     //Primer inicio, poner animación.
     if(isMGStarted){
         console.log("Iniciando minijuego...");
-        mapa.src = "imgs/chrismasTree.jpg";
+        mapa.src = "imgs/minigame/chrismasTree.jpg";
 
         //Comprobamos si has puesto una decoración no valida para el árbol
 

@@ -115,7 +115,7 @@ main > div {
     
     /*margin: 0 20%;*/
 
-    padding: 300px 290px 300px 290px;
+    padding: 21.42857142857143% 20.71428571428571% 21.42857142857143% 20.71428571428571%;
 }
 
 #libro img {
@@ -141,7 +141,7 @@ main > div {
     
     /*padding: 300px 290px 300px 290px;*/
     /* Se obtiene este resultado de (elemento / contenedor * 100) (300 / 1400) * 100 */
-    padding: 300px 290px 300px 290px;
+    padding: 21.42857142857143% 20.71428571428571% 21.42857142857143% 20.71428571428571%;
 }
 
 #imgFrase {
@@ -149,7 +149,7 @@ main > div {
 }
 
 #imgFrase img {
-    height: 200px;
+    height: 300px;
 }
 
 .home3Text h2 {
@@ -313,42 +313,42 @@ footer {
     clear: both;
     border-top: 1px solid black;
     margin-left: 150px;
+    height: 200px;
 
-    /*padding: 10px;*/
     z-index: 5;
     background-color: white;
 }
 
 #fInfo {
     font-family: 'Outfit';
-    padding-left: 500px;
-    height: 200px;
+    padding-left: 34.72222222222222%;
+    height: 100%;
     margin-top: 20px;
 }
 
 #fDireccion {
     text-align: center;
-    width: 200px;
+    width: 21.42857142857143%;
     float: left;
     border-right: 2px solid rgb(23, 93, 158);
 }
 
 #titleDir {
 
-    padding-left: 50px;
+    padding-left: 3.472222222222222%;
     font-weight: bold;
 }
 
 
 #fSocialMedia{
-    width: 300px;
+    width: 21.42857142857143%;
 
 
     float: left;
 }
 
 #titleMedia {
-    padding-left: 50px;
+    padding-left: 3.472222222222222%;
     font-weight: bold;
 }
 
