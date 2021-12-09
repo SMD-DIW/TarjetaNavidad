@@ -44,12 +44,11 @@ nav {
 
     text-align: center;
 
-    width: 150px; 
+    width: 150px;
     height: 100%; 
     
-
-
 }
+
 nav #enlaces {
     
     height: 100%;
@@ -58,8 +57,6 @@ nav #enlaces {
 
     justify-content: center;
     flex-direction: column;
-
-
 }
 
 .puntos {
@@ -83,7 +80,6 @@ nav div:nth-child(1) {
             MAIN
     ============================
 */
-
 main {
     width: 100%; /* REVISAR ****** */
     /*height: 100%;  Establecemos al 100% el ancho en el ViewPort */
@@ -98,6 +94,7 @@ main {
 
     right: 10%;
 }
+
 .redes > a {
     text-decoration: none;
     color: white;
@@ -124,7 +121,6 @@ main > div {
 #libro img {
     float:left;
     height: 250px;
-
 }
 
 .home2Text h2 {
@@ -134,7 +130,7 @@ main > div {
 
     padding: 40px 0 0 40px;
 
-    width: 30%;
+    width: 270px;
     font-size: 30px;
 }
 
@@ -322,12 +318,14 @@ footer {
     z-index: 5;
     background-color: white;
 }
+
 #fInfo {
     font-family: 'Outfit';
-    padding-left: 30%;
+    padding-left: 500px;
     height: 200px;
     margin-top: 20px;
 }
+
 #fDireccion {
     text-align: center;
     width: 200px;
