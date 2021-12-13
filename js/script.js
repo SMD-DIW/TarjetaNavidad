@@ -33,17 +33,18 @@ window.onload = iniciar;
 
 window.addEventListener("scroll",progreso);
 document.getElementsByClassName("light-bulbs")[0].onmouseover = function(e) {
-    let bulb = new Audio('recursos/bombillaRota.mp3');
+    let bulb = new Audio('recursos/bombillaRota.mp3'); //Si siguiera fallando el audio, ponerlo al iniciar.
     
     //console.log(e.target.className);
     if(e.target.className.startsWith("light-bulb theme")) {
         let bombilla = e.target.classList;
-        document.querySelector("."+ bombilla.toString().replace(" ", ".")).remove();
+        bombilla = "." + bombilla.toString().replace(" ", ".");
+        console.log(bombilla);
+        document.querySelector(bombilla).style.background = "none";
+        document.querySelector(bombilla).style.animationName = "none";
 
         //AUDIO
         bulb.play();
-        //audio.loop =true;
-        //bulb.playbackRate = 1.8;
     }
     
 };
@@ -52,9 +53,9 @@ function iniciar() {
 
     //Mute del video
     let video = document.querySelector("video")
-    //video.controls = "autoplay muted";
+    video.controls = "controls";
     video.autoplay = true;
-    video.muted = false;
+    video.muted = true;
     console.log(video);
 
     //SCROLL, relleno el constructor con datos básicos
@@ -171,12 +172,15 @@ function progreso() {
 
     //CAMBIAR
     
-    if(total > 0 && total <= 14) {
-        setTimeout(window.scrollTo(0,top2),500);
-    }
+    //Verificamos que haga el autoscroll cuando estemos en dispositivos de escritorio.
+    if(winHeight > 800) {
+        if(total > 0 && total <= 14) {
+            setTimeout(window.scrollTo(0,top2),500);
+        }
 
-    if(total < 30 && total > 16)
-        setTimeout(window.scrollTo(0,0),500); 
+        if(total < 30 && total > 16)
+            setTimeout(window.scrollTo(0,0),500); 
+    }
 
     if(total == INICIO) {
         document.querySelector("nav").style.backgroundColor = "#4C566A";
@@ -202,24 +206,36 @@ function progreso() {
 
     //Secciones -> 37, 74, 96 (minijuego), 100 (footer)
 
-    //Luces de navidad:
-    if(total>=16) document.getElementsByClassName("light-bulb")[0].style.display = "block";
-    else if(total<16) document.getElementsByClassName("light-bulb")[0].style.display = "none";
+    //Luces de navidad calculando el scroll del usuario.:
+    if(total>=16 && document.getElementsByClassName("light-bulb")[0]) 
+        document.getElementsByClassName("light-bulb")[0].style.display = "block";
+    else if(total<16 && document.getElementsByClassName("light-bulb")[0]) 
+        document.getElementsByClassName("light-bulb")[0].style.display = "none";
 
-    if(total>=28) document.getElementsByClassName("light-bulb")[1].style.display = "block";
-    else if(total<28) document.getElementsByClassName("light-bulb")[1].style.display = "none";
+    if(total>=28 && document.getElementsByClassName("light-bulb")[1]) 
+        document.getElementsByClassName("light-bulb")[1].style.display = "block";
+    else if(total<28 && document.getElementsByClassName("light-bulb")[1]) 
+        document.getElementsByClassName("light-bulb")[1].style.display = "none";
 
-    if(total>=40) document.getElementsByClassName("light-bulb")[2].style.display = "block";
-    else if(total<40) document.getElementsByClassName("light-bulb")[2].style.display = "none";
+    if(total>=40 && document.getElementsByClassName("light-bulb")[2]) 
+        document.getElementsByClassName("light-bulb")[2].style.display = "block";
+    else if(total<40 && document.getElementsByClassName("light-bulb")[2]) 
+        document.getElementsByClassName("light-bulb")[2].style.display = "none";
 
-    if(total>=53) document.getElementsByClassName("light-bulb")[3].style.display = "block";
-    else if(total<53) document.getElementsByClassName("light-bulb")[3].style.display = "none";
+    if(total>=53 && document.getElementsByClassName("light-bulb")[3]) 
+        document.getElementsByClassName("light-bulb")[3].style.display = "block";
+    else if(total<53 && document.getElementsByClassName("light-bulb")[3]) 
+        document.getElementsByClassName("light-bulb")[3].style.display = "none";
 
-    if(total>=65) document.getElementsByClassName("light-bulb")[4].style.display = "block";
-    else if(total<65) document.getElementsByClassName("light-bulb")[4].style.display = "none";
+    if(total>=65 && document.getElementsByClassName("light-bulb")[4]) 
+        document.getElementsByClassName("light-bulb")[4].style.display = "block";
+    else if(total<65 && document.getElementsByClassName("light-bulb")[4]) 
+        document.getElementsByClassName("light-bulb")[4].style.display = "none";
 
-    if(total>=77) document.getElementsByClassName("light-bulb")[5].style.display = "block";
-    else if(total<77) document.getElementsByClassName("light-bulb")[5].style.display = "none";
+    if(total>=77 && document.getElementsByClassName("light-bulb")[5]) 
+        document.getElementsByClassName("light-bulb")[5].style.display = "block";
+    else if(total<77 && document.getElementsByClassName("light-bulb")[5])
+        document.getElementsByClassName("light-bulb")[5].style.display = "none";
 
     document.getElementById("barra").style.width = total+"%";
     

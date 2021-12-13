@@ -13,6 +13,7 @@
     --theme-color-three: #f0c517;
     --theme-color-four: #bf1724;
     --theme-color-five: #5cc9f4;
+    --theme-color-six: #9e5cf4;
     --white: #fff;
     --black: #000;
     --grey: #999;
@@ -36,7 +37,7 @@ nav {
     color: white;
     background-color: #4C566A;
 
-    border-right: 2px solid black;
+    border-right: 1px solid black;
 
 
     position: fixed; /* Revisar, el main atraviesa el nav. */
@@ -130,7 +131,7 @@ main > div {
 
     padding: 40px 0 0 40px;
 
-    width: 270px;
+    width: clamp(270px, 50%, 300px); /* mínimo, preferido, máximo */
     font-size: 30px;
 }
 
@@ -141,7 +142,7 @@ main > div {
     
     /*padding: 300px 290px 300px 290px;*/
     /* Se obtiene este resultado de (elemento / contenedor * 100) (300 / 1400) * 100 */
-    padding: 300px 290px 300px 290px;
+    padding: 20% 0 20% 20%;
 }
 
 #imgFrase {
@@ -149,7 +150,7 @@ main > div {
 }
 
 #imgFrase img {
-    height: 300px;
+    height: 200px;
 }
 
 .home3Text h2 {
@@ -302,6 +303,12 @@ hr {
     background: var(--theme-color-five);
     animation-name: light-up-theme-color-five;
 }
+.light-bulb.theme-color-six {
+    display: none;
+
+    background: var(--theme-color-six);
+    animation-name: light-up-theme-color-six;
+}
 
 /**
     ============================
@@ -320,10 +327,11 @@ footer {
 }
 
 #fInfo {
+    background-color: rgb(158, 2, 2);
     font-family: 'Outfit';
-    padding-left: 500px;
+    padding-left: 650px;
     height: 200px;
-    margin-top: 20px;
+    padding-top: 20px;
 }
 
 #fDireccion {
@@ -364,7 +372,11 @@ footer {
     color: cyan;
 }
 #copy {
+    background-color: #484747;
+    color: #d3bebe;
+
     clear:left;
+    text-align: center;
     font-weight: bold;
     font-family: 'Oswald', sans-serif;
     border-top: 1px solid black;
@@ -591,6 +603,24 @@ footer {
     }
 }
 
+@keyframes light-up-theme-color-six {
+    0% {
+      box-shadow: 0 1px 10px 5px var(--theme-color-six);
+    }
+    25% {
+      box-shadow: 0 1px 15px 5px var(--theme-color-six);
+    }
+    50% {
+      box-shadow: 0 1px 20px 5px var(--theme-color-six);
+    }
+    75% {
+      box-shadow: 0 1px 25px 5px var(--theme-color-six);
+    }
+    100% {
+      box-shadow: none;
+    }
+}
+
 /**
     ============================
             Media Queries
@@ -612,9 +642,12 @@ footer {
     }
 }
 
-@media screen and (max-width: 1450px) {
+@media screen and (max-width: 1550px) {
     #santaImg {
         right: -50px;
+    }
+    #imgFrase{
+        height: 200px;
     }
 }
 
