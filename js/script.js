@@ -70,6 +70,7 @@ function iniciar() {
     //Establezco las animaciones.
     sr.reveal(".home2Text", { origin: "left" });
     sr.reveal(".home3Text", { origin: "top"} );
+    sr.reveal(".home4Text", { origin: "bottom"} );
     sr.reveal("footer", { origin: "bottom", delay: 100} );
     sr.reveal("#fInfo", { origin: "bottom", delay: 600} );
     sr.reveal("#copy", { origin: "bottom", delay: 600} );
@@ -283,7 +284,7 @@ function miniGameClicks(event) {
     //Primer inicio, poner animación.
     if(isMGStarted){
         console.log("Iniciando minijuego...");
-        mapa.src = "imgs/chrismasTree.jpg";
+        mapa.src = "imgs/minigame/chrismasTree.jpg";
 
         //Comprobamos si has puesto una decoración no valida para el árbol
 
