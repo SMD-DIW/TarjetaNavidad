@@ -72,8 +72,8 @@ function iniciar() {
     sr.reveal(".home3Text", { origin: "top"} );
     sr.reveal(".home4Text", { origin: "bottom"} );
     sr.reveal("footer", { origin: "bottom", delay: 100} );
-    sr.reveal("#fInfo", { origin: "bottom", delay: 600} );
-    sr.reveal("#copy", { origin: "bottom", delay: 600} );
+    sr.reveal("#fInfo", { origin: "bottom", delay: 700} );
+    sr.reveal("#copy", { origin: "bottom", delay: 1000} );
     
 
     //Inicio minijuego
