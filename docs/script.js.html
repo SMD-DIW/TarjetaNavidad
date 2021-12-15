@@ -1,7 +1,35 @@
-/**
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: script.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: script.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
  * @file Controlador principal de la web
  * 
- * @author Sergio Matamoros Delgado <smatamorosdelgado.guadalupe@alumnado.fundacionloyola.net>
+ * @author Sergio Matamoros Delgado &lt;smatamorosdelgado.guadalupe@alumnado.fundacionloyola.net>
  * @license GPL v3 2021
  * @description Controlador principal de la página web.
  */
@@ -18,6 +46,10 @@ let winHeight;
 
 let mapa = document.querySelector(".minijuego img");
 let isMGStarted = false;
+
+let sumaBombilla = 0;
+
+let draggedItem = null;
 
 
 let tSlider = undefined; //Total de sliders
@@ -89,8 +121,8 @@ function iniciar() {
     let total = tSlider.length-1;
 
     //Calculo cuantas secciones hay y creo puntos.
-    let seccionesTotal = document.querySelectorAll("main > div").length - 1;
-    for(let i=0;i<seccionesTotal;i++) {
+    let seccionesTotal = document.querySelectorAll("main > div").length;
+    for(let i=0;i&lt;seccionesTotal;i++) {
         let puntos = document.createElement("a");
         puntos.classList.add("puntos");
         document.getElementById("enlaces").appendChild(puntos);
@@ -138,7 +170,7 @@ function iniciar() {
     prev.addEventListener("click", (evt) => {
         evt.preventDefault();
         slide--;
-        if (slide < 0) slide = total; //Ponemos el slider en la última posición.
+        if (slide &lt; 0) slide = total; //Ponemos el slider en la última posición.
         showSlider(slide);
     })
 }
@@ -149,14 +181,10 @@ function iniciar() {
     * @param {Number} n - Numero del slide del que quieres mostrar.
 */
 function showSlider(n) {
-    for (let i = 0; i < tSlider.length; i++) 
+    for (let i = 0; i &lt; tSlider.length; i++) 
         (i == n) ? tSlider[n].style.display = "block" : tSlider[i].style.display = "none";
 }
 
-function calculoPosicionNav(array, position) {
-    let calculoDiv = Math.abs((scrollDoc) / (array[position] - docHeight));
-    return Math.round(calculoDiv*100); 
-}
 
 /**
  * Calcula el porcentaje de scroll que has hecho en la página y lo muestra en una barra.
@@ -173,39 +201,17 @@ function progreso() {
     console.log("total:" + total);
 
     //Selecciona el top total en pixeles del div requerido.
-    let top2 = document.getElementsByClassName("home2")[0].offsetTop;
+    let top2 = document.getElementsByClassName("home2Text")[0].offsetTop;
 
-    //Array con los height de cada div
-    let divsTops = [
-        document.getElementsByClassName("home1")[0].offsetTop,
-        document.getElementsByClassName("home2")[0].offsetTop,
-        document.getElementsByClassName("home3")[0].offsetTop,
-        document.getElementsByClassName("home4")[0].offsetTop,
-        document.getElementsByClassName("minijuego")[0].offsetTop
-    ];
-
-    let tuPosicion = total;
-
-    //Si la posición en la que estás es mayor que la anterior y menor que el siguiente div
-    //añadimos el punto correctamente.
-    for(let i=0;i<divsTops.length;i++) {
-        if(tuPosicion > calculoPosicionNav(divsTops, i--) && tuPosicion < calculoPosicionNav(divsTops, i++)) {
-            console.error("SIGUIENTE");
-        }
-    }
-
-    /*for(let top in divsTops) {
-        console.log(top);
-        if(tuPosicion > top-- && tuPosicion < top++) console.log("entro");
-    }*/
+    //CAMBIAR
     
     //Verificamos que haga el autoscroll cuando estemos en dispositivos de escritorio.
-    if(winHeight > 700 && window.innerWidth > 500) {
-        if(total > 0 && total <= 14) {
+    if(winHeight > 700 &amp;&amp; window.innerWidth > 500) {
+        if(total > 0 &amp;&amp; total &lt;= 14) {
             setTimeout(window.scrollTo(0,top2),500);
         }
 
-        if(total < 20 && total > 16)
+        if(total &lt; 20 &amp;&amp; total > 16)
             setTimeout(window.scrollTo(0,0),500); 
     }
 
@@ -214,12 +220,12 @@ function progreso() {
 
         navPuntos(0);
     }
-    else if(total >= 35 && total < 65) {
+    else if(total >= 35 &amp;&amp; total &lt; 65) {
         document.querySelector("nav").style.backgroundColor = "#222";
 
         navPuntos(1);
     }
-    else if(total >= 66 && total < 96) {
+    else if(total >= 66 &amp;&amp; total &lt; 96) {
         navPuntos(2);
         document.getElementById("santaImg").style.display= "none";
     }
@@ -234,36 +240,36 @@ function progreso() {
     //Secciones -> 37, 74, 96 (minijuego), 100 (footer)
 
     //Comprobamos que estemos en un dispositivo de escritorio.
-    if(winHeight > 700 && window.innerWidth > 500) {
+    if(winHeight > 700 &amp;&amp; window.innerWidth > 500) {
         //Luces de navidad calculando el scroll del usuario.:
-        if(total>=16 && document.getElementsByClassName("light-bulb")[0]) 
+        if(total>=16 &amp;&amp; document.getElementsByClassName("light-bulb")[0]) 
             document.getElementsByClassName("light-bulb")[0].style.display = "block";
-        else if(total<16 && document.getElementsByClassName("light-bulb")[0]) 
+        else if(total&lt;16 &amp;&amp; document.getElementsByClassName("light-bulb")[0]) 
             document.getElementsByClassName("light-bulb")[0].style.display = "none";
 
-        if(total>=28 && document.getElementsByClassName("light-bulb")[1]) 
+        if(total>=28 &amp;&amp; document.getElementsByClassName("light-bulb")[1]) 
             document.getElementsByClassName("light-bulb")[1].style.display = "block";
-        else if(total<28 && document.getElementsByClassName("light-bulb")[1]) 
+        else if(total&lt;28 &amp;&amp; document.getElementsByClassName("light-bulb")[1]) 
             document.getElementsByClassName("light-bulb")[1].style.display = "none";
 
-        if(total>=40 && document.getElementsByClassName("light-bulb")[2]) 
+        if(total>=40 &amp;&amp; document.getElementsByClassName("light-bulb")[2]) 
             document.getElementsByClassName("light-bulb")[2].style.display = "block";
-        else if(total<40 && document.getElementsByClassName("light-bulb")[2]) 
+        else if(total&lt;40 &amp;&amp; document.getElementsByClassName("light-bulb")[2]) 
             document.getElementsByClassName("light-bulb")[2].style.display = "none";
 
-        if(total>=53 && document.getElementsByClassName("light-bulb")[3]) 
+        if(total>=53 &amp;&amp; document.getElementsByClassName("light-bulb")[3]) 
             document.getElementsByClassName("light-bulb")[3].style.display = "block";
-        else if(total<53 && document.getElementsByClassName("light-bulb")[3]) 
+        else if(total&lt;53 &amp;&amp; document.getElementsByClassName("light-bulb")[3]) 
             document.getElementsByClassName("light-bulb")[3].style.display = "none";
 
-        if(total>=65 && document.getElementsByClassName("light-bulb")[4]) 
+        if(total>=65 &amp;&amp; document.getElementsByClassName("light-bulb")[4]) 
             document.getElementsByClassName("light-bulb")[4].style.display = "block";
-        else if(total<65 && document.getElementsByClassName("light-bulb")[4]) 
+        else if(total&lt;65 &amp;&amp; document.getElementsByClassName("light-bulb")[4]) 
             document.getElementsByClassName("light-bulb")[4].style.display = "none";
 
-        if(total>=77 && document.getElementsByClassName("light-bulb")[5]) 
+        if(total>=77 &amp;&amp; document.getElementsByClassName("light-bulb")[5]) 
             document.getElementsByClassName("light-bulb")[5].style.display = "block";
-        else if(total<77 && document.getElementsByClassName("light-bulb")[5])
+        else if(total&lt;77 &amp;&amp; document.getElementsByClassName("light-bulb")[5])
             document.getElementsByClassName("light-bulb")[5].style.display = "none";
     }
 
@@ -278,7 +284,7 @@ function progreso() {
 function navPuntos(n) {
     
     //Reseteamos los colores de los puntos
-    for(let i=0;i<document.querySelectorAll("nav .puntos").length;i++)
+    for(let i=0;i&lt;document.querySelectorAll("nav .puntos").length;i++)
         document.querySelectorAll("nav .puntos")[i].style.backgroundColor = "inherit";
 
     //Ponemos el color de nuestro punto
@@ -376,7 +382,7 @@ function minigameChecks() {
             console.error("¡Se acabó el tiempo! y " + timer);
 
             //Eliminamos todos los regalos
-            for(let i=0;i<document.querySelectorAll(".regalo").length;i++)
+            for(let i=0;i&lt;document.querySelectorAll(".regalo").length;i++)
                 document.querySelectorAll(".regalo")[i].remove();
 
             //Mensaje perdido en pantalla 
@@ -422,4 +428,26 @@ function previewItem(rnd) {
     previewItem.style.height = "20px";
     divItem.appendChild(previewItem);
 
-}
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#iniciar">iniciar</a></li><li><a href="global.html#minigameChecks">minigameChecks</a></li><li><a href="global.html#miniGameClicks">miniGameClicks</a></li><li><a href="global.html#navPuntos">navPuntos</a></li><li><a href="global.html#previewItem">previewItem</a></li><li><a href="global.html#progreso">progreso</a></li><li><a href="global.html#rndItem">rndItem</a></li><li><a href="global.html#showSlider">showSlider</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Wed Dec 15 2021 16:49:55 GMT+0100 (hora estándar de Europa central)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
