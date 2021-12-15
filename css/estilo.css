@@ -117,11 +117,10 @@ main > div {
 
 }
 
-.home2Text {
-    
-    /*margin: 0 20%;*/
-
-    padding: 300px 290px 300px 290px;
+.home2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #libro img {
@@ -143,15 +142,10 @@ main > div {
 /**
     * DIV HOME 3
 */
-.home3Text {    
-
-    
-    /*Anterior: padding: 20% 0 20% 20%; */
-    
-    /*padding: 300px 290px 300px 290px;*/
-    /* Se obtiene este resultado de (elemento / contenedor * 100) (300 / 1400) * 100 */
-    padding: 20% 0 20% 20%;
+.home3{
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #imgFrase {
@@ -174,26 +168,23 @@ main > div {
 /**
     * DIV HOME 4 (LEMA FUNDACIÓN)
 */
-.home4Text {    
+.home4 {    
 
-    
-    /*Anterior: padding: 20% 0 20% 20%; */
-    
-    /*padding: 300px 290px 300px 290px;*/
-    /* Se obtiene este resultado de (elemento / contenedor * 100) (300 / 1400) * 100 */
-    padding: 20% 0 20% 28%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
 .home4Text h2, h3, h4, iframe {
     font-size: 30px;
-    text-align: center;
-    width: clamp(580px, 50%, 400px);
+    /*text-align: center;
+    width: clamp(580px, 50%, 400px);*/
     font-family: 'Roboto', sans-serif;
 }
 iframe {
-    padding-left: 10%;
-    width: clamp(400px, 20%,500px);
+    
+    width: clamp(250px, 20%,500px);
     height: 190px;
     border: none;
 }
@@ -366,15 +357,23 @@ footer {
     /*padding: 10px;*/
     z-index: 5;
     background-color: white;
+    display: flex;
+    flex-direction: column;
 }
 
 #fInfo {
     transition: background-color  3s step-start;
     background-color: rgb(158, 2, 2);
     font-family: 'Outfit';
-    padding-left: 650px;
+   /* padding-left: 650px;*/
     height: 200px;
-    padding-top: 20px;
+  
+
+    display: flex;
+    
+
+    justify-content: center;
+    align-items: center;
 }
 
 #fDireccion {
@@ -686,9 +685,6 @@ footer {
 }
 
 @media screen and (max-width: 1550px) {
-    #fInfo {
-        padding-left: 450px;
-    }
     #santaImg {
         right: -50px;
     }
@@ -697,7 +693,7 @@ footer {
     }
 }
 
-/* Control de height */
+/* Control de height 
 @media screen and (max-height: 600px) {
     .home2Text {
         padding-top: 40px;
@@ -708,7 +704,7 @@ footer {
     .home4Text {
         padding-top: 40px;
     }
-}
+}*/
 
 /* Moviles*/
 @media screen and (max-width: 500px) {
@@ -716,10 +712,9 @@ footer {
         float: none;
         width: 100%;
         height: auto;
-
     }
-    #fInfo {
-        padding-left: 0;
+    footer {
+        margin: 0;
     }
     #fDireccion {
         border-right: 0px;
@@ -733,16 +728,10 @@ footer {
     main > div {
         margin-left: 0;
     }
-    .home2Text {
-        padding: 10% 0;
-    }
     .home2Text .imgSecc1 {
         padding: 10% 0;
 
         float: none;
         width: 100%;
-    }
-    .home3Text {
-        padding: 0;
     }
 }

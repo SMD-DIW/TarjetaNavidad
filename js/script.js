@@ -71,7 +71,7 @@ function iniciar() {
     sr.reveal(".home2Text", { origin: "left" });
     sr.reveal(".home3Text", { origin: "top"} );
     sr.reveal(".home4Text", { origin: "bottom"} );
-    sr.reveal("footer", { origin: "bottom", delay: 100} );
+    sr.reveal("footer", { origin: "bottom", delay: 300} );
     sr.reveal("#fInfo", { origin: "bottom", delay: 700} );
     sr.reveal("#copy", { origin: "bottom", delay: 1000} );
     
@@ -174,7 +174,7 @@ function progreso() {
     //CAMBIAR
     
     //Verificamos que haga el autoscroll cuando estemos en dispositivos de escritorio.
-    if(winHeight > 800) {
+    if(winHeight > 700 && window.innerWidth > 500) {
         if(total > 0 && total <= 14) {
             setTimeout(window.scrollTo(0,top2),500);
         }
@@ -207,36 +207,39 @@ function progreso() {
 
     //Secciones -> 37, 74, 96 (minijuego), 100 (footer)
 
-    //Luces de navidad calculando el scroll del usuario.:
-    if(total>=16 && document.getElementsByClassName("light-bulb")[0]) 
-        document.getElementsByClassName("light-bulb")[0].style.display = "block";
-    else if(total<16 && document.getElementsByClassName("light-bulb")[0]) 
-        document.getElementsByClassName("light-bulb")[0].style.display = "none";
+    //Comprobamos que estemos en un dispositivo de escritorio.
+    if(winHeight > 700 && window.innerWidth > 500) {
+        //Luces de navidad calculando el scroll del usuario.:
+        if(total>=16 && document.getElementsByClassName("light-bulb")[0]) 
+            document.getElementsByClassName("light-bulb")[0].style.display = "block";
+        else if(total<16 && document.getElementsByClassName("light-bulb")[0]) 
+            document.getElementsByClassName("light-bulb")[0].style.display = "none";
 
-    if(total>=28 && document.getElementsByClassName("light-bulb")[1]) 
-        document.getElementsByClassName("light-bulb")[1].style.display = "block";
-    else if(total<28 && document.getElementsByClassName("light-bulb")[1]) 
-        document.getElementsByClassName("light-bulb")[1].style.display = "none";
+        if(total>=28 && document.getElementsByClassName("light-bulb")[1]) 
+            document.getElementsByClassName("light-bulb")[1].style.display = "block";
+        else if(total<28 && document.getElementsByClassName("light-bulb")[1]) 
+            document.getElementsByClassName("light-bulb")[1].style.display = "none";
 
-    if(total>=40 && document.getElementsByClassName("light-bulb")[2]) 
-        document.getElementsByClassName("light-bulb")[2].style.display = "block";
-    else if(total<40 && document.getElementsByClassName("light-bulb")[2]) 
-        document.getElementsByClassName("light-bulb")[2].style.display = "none";
+        if(total>=40 && document.getElementsByClassName("light-bulb")[2]) 
+            document.getElementsByClassName("light-bulb")[2].style.display = "block";
+        else if(total<40 && document.getElementsByClassName("light-bulb")[2]) 
+            document.getElementsByClassName("light-bulb")[2].style.display = "none";
 
-    if(total>=53 && document.getElementsByClassName("light-bulb")[3]) 
-        document.getElementsByClassName("light-bulb")[3].style.display = "block";
-    else if(total<53 && document.getElementsByClassName("light-bulb")[3]) 
-        document.getElementsByClassName("light-bulb")[3].style.display = "none";
+        if(total>=53 && document.getElementsByClassName("light-bulb")[3]) 
+            document.getElementsByClassName("light-bulb")[3].style.display = "block";
+        else if(total<53 && document.getElementsByClassName("light-bulb")[3]) 
+            document.getElementsByClassName("light-bulb")[3].style.display = "none";
 
-    if(total>=65 && document.getElementsByClassName("light-bulb")[4]) 
-        document.getElementsByClassName("light-bulb")[4].style.display = "block";
-    else if(total<65 && document.getElementsByClassName("light-bulb")[4]) 
-        document.getElementsByClassName("light-bulb")[4].style.display = "none";
+        if(total>=65 && document.getElementsByClassName("light-bulb")[4]) 
+            document.getElementsByClassName("light-bulb")[4].style.display = "block";
+        else if(total<65 && document.getElementsByClassName("light-bulb")[4]) 
+            document.getElementsByClassName("light-bulb")[4].style.display = "none";
 
-    if(total>=77 && document.getElementsByClassName("light-bulb")[5]) 
-        document.getElementsByClassName("light-bulb")[5].style.display = "block";
-    else if(total<77 && document.getElementsByClassName("light-bulb")[5])
-        document.getElementsByClassName("light-bulb")[5].style.display = "none";
+        if(total>=77 && document.getElementsByClassName("light-bulb")[5]) 
+            document.getElementsByClassName("light-bulb")[5].style.display = "block";
+        else if(total<77 && document.getElementsByClassName("light-bulb")[5])
+            document.getElementsByClassName("light-bulb")[5].style.display = "none";
+    }
 
     document.getElementById("barra").style.width = total+"%";
     
