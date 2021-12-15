@@ -151,6 +151,7 @@ main > div {
     /*padding: 300px 290px 300px 290px;*/
     /* Se obtiene este resultado de (elemento / contenedor * 100) (300 / 1400) * 100 */
     padding: 20% 0 20% 20%;
+    display: flex;
 }
 
 #imgFrase {
@@ -164,6 +165,7 @@ main > div {
 .home3Text h2 {
     float: left;
     font-size: 30px;
+    padding-left: 20px;
     width: 380px;
     font-family: 'Roboto', sans-serif;
 }
@@ -367,7 +369,7 @@ footer {
 }
 
 #fInfo {
-    transition: background-color  3s;
+    transition: background-color  3s step-start;
     background-color: rgb(158, 2, 2);
     font-family: 'Outfit';
     padding-left: 650px;
