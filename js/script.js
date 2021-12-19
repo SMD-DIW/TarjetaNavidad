@@ -8,10 +8,6 @@
 
 'use strict';
 
-//Constantes:
-const INICIO = 0;
-const PRIMSECCION = 0;
-
 let scrollDoc;
 let docHeight;
 let winHeight;
@@ -176,27 +172,20 @@ function progreso() {
     let top2 = document.getElementsByClassName("home2")[0].offsetTop;
 
     //Array con los height de cada div
-    let divsTops = [
-        document.getElementsByClassName("home1")[0].offsetTop,
-        document.getElementsByClassName("home2")[0].offsetTop,
-        document.getElementsByClassName("home3")[0].offsetTop,
-        document.getElementsByClassName("home4")[0].offsetTop,
-        document.getElementsByClassName("minijuego")[0].offsetTop
+    /*let divsTops = [
+        Math.floor(document.getElementsByClassName("home1")[0].offsetTop),
+        Math.floor(document.getElementsByClassName("home2")[0].offsetTop),
+        Math.floor(document.getElementsByClassName("home3")[0].offsetTop),
+        Math.floor(document.getElementsByClassName("home4")[0].offsetTop),
+        Math.floor(document.getElementsByClassName("minijuego")[0].offsetTop)
     ];
 
-    let tuPosicion = total;
-
-    //Si la posición en la que estás es mayor que la anterior y menor que el siguiente div
-    //añadimos el punto correctamente.
+    //Coge el div actual seleccionando el anterior y comparandolo con el siguiente
     for(let i=0;i<divsTops.length;i++) {
-        if(tuPosicion > calculoPosicionNav(divsTops, i--) && tuPosicion < calculoPosicionNav(divsTops, i++)) {
-            console.error("SIGUIENTE");
+        if(divsTops[i] <= divsTops[i++] && divsTops[i] >= divsTops[i--]) 
+        {
+            console.error("a "+divsTops[i]);
         }
-    }
-
-    /*for(let top in divsTops) {
-        console.log(top);
-        if(tuPosicion > top-- && tuPosicion < top++) console.log("entro");
     }*/
     
     //Verificamos que haga el autoscroll cuando estemos en dispositivos de escritorio.
@@ -209,7 +198,7 @@ function progreso() {
             setTimeout(window.scrollTo(0,0),500); 
     }
 
-    if(total == INICIO) {
+    if(total == 0) {
         document.querySelector("nav").style.backgroundColor = "#4C566A";
 
         navPuntos(0);

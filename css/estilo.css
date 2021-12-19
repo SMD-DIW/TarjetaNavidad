@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;1,300&display=swap');
 
 * {
     margin: 0;
@@ -51,8 +52,8 @@ nav {
 }
 
 nav div > img {
-    width: 100px;
-    height: 60px;
+    width: 100%;
+    height: 140px;
 }
 
 nav #enlaces {
@@ -714,6 +715,7 @@ footer {
         height: auto;
     }
     footer {
+        width: 100%;
         margin: 0;
     }
     #fDireccion {
@@ -735,3 +737,15 @@ footer {
         width: 100%;
     }
 }
+/*
+
+Licencias fotos:
+- https://www.google.com/imgres?imgurl=https%3A%2F%2Fmedia.istockphoto.com%2Fvectors%2Fchristmas-tree-on-rink-in-old-town-vector-id524176141%3Fk%3D20%26m%3D524176141%26s%3D612x612%26w%3D0%26h%3DFMSwlwGK3DvrKl1hVwaQmvMzIrtNQpsnEijpZW3-anU%3D&imgrefurl=https%3A%2F%2Fwww.istockphoto.com%2Fillustrations%2Fchristmas-tree-town-square&tbnid=8n8tLJkYRp4B1M&vet=10CBcQxiAoBGoXChMIqKuD3POs9AIVAAAAAB0AAAAAEAY..i&docid=wHtTmdMhF8pWCM&w=459&h=612&itg=1&q=city%20christmas%20tree%20flat%20icon&ved=0CBcQxiAoBGoXChMIqKuD3POs9AIVAAAAAB0AAAAAEAY <- fondo
+  Creador:  Laralova
+  Licencia: Desconocida
+
+- https://www.flaticon.com/premium-icon/giftbox_1196240# <- regalo (parte antigua del minijuego)
+- helpSanta.png Licencia desconocida
+
+- ig.png (licencia libre)
+*/
